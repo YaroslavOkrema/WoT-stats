@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="stats__item">
+        <div class="stats__logo">
+            <img class="wot__logo" src="assets/img/wot-logo.png" alt="logo">
+        </div>
+        <h1 class="stats__title">Players</h1>
+        <p class="stats__subtitle">Use this section to look up information on World of Tanks players. Enter a player's name in the field below and click Search.</p>
+        <input class="stats__input" type="text" id="playerName" [(ngModel)]="playerName">
+        <button class="stats__btn" (click)="searchPlayer()">Search</button>
+    
+        <div *ngIf="playerStats">
+            <p>Search results for {{playerName}}</p>
+            <table>
+                <tr>
+                  <th>Name</th>
+                  <th>Battles</th>
+                  <th>Victories</th>
+                </tr>
+                <tr>
+                  <td>{{playerName}}</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </table>
+        </div>
+    </div>
+</div>

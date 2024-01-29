@@ -1,3 +1,19 @@
 export interface PlayerId {
-    account_id: number;
-  } 
+  status: string;
+  meta: {
+    count: number;
+  };
+  data: PlayerData[];
+} 
+
+export interface PlayerData {
+  nickname: string;
+  account_id: number;
+  global_rating: number;
+  statistics: {
+    all: {
+        battles: number;
+        wins: number;
+    }
+};
+}

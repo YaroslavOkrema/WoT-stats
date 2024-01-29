@@ -2,39 +2,39 @@ import { Component } from '@angular/core';
 import { ApiService } from '../service/api.service';
 import { PlayerStats } from '../interfaces/playerStats';
 import { PlayerId } from '../interfaces/playerId';
-import { FormsModule } from '@angular/forms';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { PlayerPersonalData } from './playerPersonalData';
+import { map, switchMap } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-stats',
   standalone: true,
   imports: [
-    FormsModule,
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   templateUrl: './stats.component.html',
-  styleUrl: './stats.component.scss'
+  styleUrl: './stats.component.scss',
 })
 export class StatsComponent {
-  playerName: string = '';
-  playerStats: PlayerStats | null = null;
-  playerId: PlayerId | undefined;
-  
+  playerPersonalData: PlayerPersonalData | null = null;
+  playerName = new FormControl('');
 
   constructor(private apiService: ApiService) {}
 
   searchPlayer() {
-    this.apiService.getPlayerId(this.playerName).subscribe(
-      (response: any) => {
-        if(response.status === 'ok' && response.data.length > 0) {
-          const playerData = response.data[0];
-          const {account_id} = playerData;
-          this.playerId = account_id;
-          console.log(this.playerId);
-          this.getPlayerStats(account_id);
-        } else {
-          console.log('No player data found');
-        }
+    if(!this.playerName.value) return;
+
+    this.apiService.getPlayerId(this.playerName.value).pipe(
+      switchMap((data: PlayerId) => this.apiService.getPlayerStats(data.data[0].account_id || 0)), 
+      map((data) => this.getPlayerStats(data))
+    )
+    .subscribe(
+      (data) => {
+       this.playerPersonalData = new PlayerPersonalData(data);
+        console.log(data);
       },
       (error) => {
         console.log(error);
@@ -42,14 +42,7 @@ export class StatsComponent {
     );
   }
 
-  getPlayerStats(accountId: number) {
-    if(this.playerId) {
-      this.apiService.getPlayerStats(accountId).subscribe(
-        (stats: PlayerStats) => {
-          this.playerStats = stats;
-          console.log(stats);
-        }
-      )
-    }
- }
+  getPlayerStats(data: PlayerStats): PlayerPersonalData {
+    return new PlayerPersonalData(data);
+  }
 } 

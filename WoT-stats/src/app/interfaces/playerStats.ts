@@ -1,6 +1,11 @@
+import { PlayerData } from "./playerId";
+
 export interface PlayerStats {
-  nickname: string;
-  global_rating: number;
-  battles: number;
-  wins: number;
+  [key: string]: any;
+  data: { [accountId: number]: PlayerData };
+    globalRating: number;
+    battles: number;
+    wins: number;
+    nickname: string;
+    winPercentage: string;
 }

@@ -44,6 +44,7 @@
     line-height: 11px;
     padding: 3px 7px 2px;
     width: 163px;
+    margin-bottom: 17px;
 }
 
 .stats__btn {
@@ -73,6 +74,7 @@ th {
     line-height: 131%;
     padding: 8px 13px;
     vertical-align: middle;
+    background: linear-gradient(to bottom, #090a0b 2%, #2e3139 50%);
 }
 
 tr {
@@ -84,4 +86,21 @@ td {
     color: #9fa0a1;
     padding: 10px 13px 6px;
     vertical-align: top;
+    background: #0a0c0d;
+}
+
+.stats__res {
+    margin-bottom: 17px;
+    color: #7f7e7e;
+    font-weight: 700;
+    font-size: 12px;
+    font-family: Arial,"Helvetica CY",Helvetica,sans-serif;
+}
+
+.res__name {
+    color: #fff;
+}
+
+.table__name {
+    color: #658c4c;
 }

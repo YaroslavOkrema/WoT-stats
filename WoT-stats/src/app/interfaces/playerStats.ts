@@ -1,6 +1,17 @@
 export interface PlayerStats {
-  nickname: string;
-  global_rating: number;
-  battles: number;
-  wins: number;
+  status: string;
+  data: {
+    [accountId: number]: {
+      nickname: string;
+      global_rating: number;
+      last_battle_time: string;
+      statistics: {
+        all: {
+          battles: number;
+          wins: number;
+          global_rating: number;
+        }
+      }
+    }
+  };
 }

@@ -19,15 +19,19 @@ export class StatsComponent {
   playerName: string = '';
   playerStats: PlayerStats | null = null;
   playerId: PlayerId | undefined;
-  
+  globalRating: number = 0;
+  battles: number = 0;
+  wins: number = 0;
+  roundedWinPercentage: string = '';
 
   constructor(private apiService: ApiService) {}
 
   searchPlayer() {
     this.apiService.getPlayerId(this.playerName).subscribe(
-      (response: any) => {
+      (response: PlayerId) => {
         if(response.status === 'ok' && response.data.length > 0) {
           const playerData = response.data[0];
+          console.log(playerData);
           const {account_id} = playerData;
           this.playerId = account_id;
           console.log(this.playerId);
@@ -43,13 +47,29 @@ export class StatsComponent {
   }
 
   getPlayerStats(accountId: number) {
-    if(this.playerId) {
-      this.apiService.getPlayerStats(accountId).subscribe(
-        (stats: PlayerStats) => {
-          this.playerStats = stats;
-          console.log(stats);
+    this.apiService.getPlayerStats(accountId).subscribe(
+      (response: PlayerStats) => {
+        if(response.status === 'ok' && response.data) {
+          const playerData = response.data[accountId];
+          if (playerData) {
+            this.globalRating = playerData.global_rating;
+            console.log(this.globalRating);
+
+            const playerStatistics = response.data[accountId].statistics.all;
+            if (playerStatistics) {
+              this.battles = playerStatistics.battles;
+              console.log(this.battles);
+              
+              this.wins = playerStatistics.wins;
+              console.log(this.wins);
+
+              const winPercentage = (this.wins / this.battles) * 100;
+              this.roundedWinPercentage = winPercentage.toFixed(2);
+              console.log(this.roundedWinPercentage);
+            }
+          }
         }
-      )
-    }
- }
+      }
+    );
+  }
 } 

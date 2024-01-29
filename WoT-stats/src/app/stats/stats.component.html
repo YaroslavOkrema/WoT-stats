@@ -8,18 +8,20 @@
         <input class="stats__input" type="text" id="playerName" [(ngModel)]="playerName">
         <button class="stats__btn" (click)="searchPlayer()">Search</button>
     
-        <div *ngIf="playerStats">
-            <p>Search results for {{playerName}}</p>
+        <div *ngIf="globalRating && battles">
+            <p class="stats__res">Search results for <span class="res__name">{{playerName}}</span></p>
             <table>
                 <tr>
                   <th>Name</th>
                   <th>Battles</th>
                   <th>Victories</th>
+                  <th>Global Rating</th>
                 </tr>
                 <tr>
-                  <td>{{playerName}}</td>
-                  <td></td>
-                  <td></td>
+                  <td><span class="table__name">{{playerName}}</span></td>
+                  <td>{{battles}}</td>
+                  <td>{{roundedWinPercentage}}%</td>
+                  <td>{{globalRating}}</td>
                 </tr>
               </table>
         </div>

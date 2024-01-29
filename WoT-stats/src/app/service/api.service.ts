@@ -13,9 +13,9 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getPlayerId(playerName: string): Observable<PlayerId[]> {
+  getPlayerId(playerName: string): Observable<PlayerId> {
     const url = `https://api.worldoftanks.eu/wot/account/list/?application_id=${this.appId}&search=${playerName}`;
-    return this.http.get<PlayerId[]>(url);
+    return this.http.get<PlayerId>(url);
   }
 
   getPlayerStats(accountId: number): Observable<PlayerStats> {

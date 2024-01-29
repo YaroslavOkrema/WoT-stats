@@ -1,3 +1,12 @@
 export interface PlayerId {
-    account_id: number;
-  } 
+  status: string;
+  meta: {
+    count: number;
+  };
+  data: PlayerData[];
+} 
+
+interface PlayerData {
+  nickname: string;
+  account_id: any;
+}

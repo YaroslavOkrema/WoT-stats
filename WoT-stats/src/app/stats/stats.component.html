@@ -5,11 +5,11 @@
         </div>
         <h1 class="stats__title">Players</h1>
         <p class="stats__subtitle">Use this section to look up information on World of Tanks players. Enter a player's name in the field below and click Search.</p>
-        <input class="stats__input" type="text" id="playerName" [(ngModel)]="playerName">
+        <input class="stats__input" type="text" [formControl]="playerName">
         <button class="stats__btn" (click)="searchPlayer()">Search</button>
-    
-        <div *ngIf="globalRating && battles">
-            <p class="stats__res">Search results for <span class="res__name">{{playerName}}</span></p>
+        
+        <div *ngIf="playerPersonalData$ | async as playerPersonalData">
+            <p class="stats__res">Search results for <span class="res__name">{{playerPersonalData.nickname}}</span></p>
             <table>
                 <tr>
                   <th>Name</th>
@@ -18,12 +18,12 @@
                   <th>Global Rating</th>
                 </tr>
                 <tr>
-                  <td><span class="table__name">{{playerName}}</span></td>
-                  <td>{{battles}}</td>
-                  <td>{{roundedWinPercentage}}%</td>
-                  <td>{{globalRating}}</td>
+                  <td><span class="table__name">{{playerPersonalData.nickname}}</span></td>
+                  <td>{{playerPersonalData.battles}}</td>
+                  <td>{{playerPersonalData.winPercentage}}%</td>
+                  <td>{{playerPersonalData.globalRating}}</td>
                 </tr>
-              </table>
+            </table>
         </div>
     </div>
 </div>

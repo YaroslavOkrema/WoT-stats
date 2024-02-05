@@ -1,17 +1,11 @@
+import { PlayerData } from "./playerId";
+
 export interface PlayerStats {
-  status: string;
-  data: {
-    [accountId: number]: {
-      nickname: string;
-      global_rating: number;
-      last_battle_time: string;
-      statistics: {
-        all: {
-          battles: number;
-          wins: number;
-          global_rating: number;
-        }
-      }
-    }
-  };
+  [key: string]: number | string | object;
+  data: { [accountId: number]: PlayerData };
+    globalRating: number;
+    battles: number;
+    wins: number;
+    nickname: string;
+    winPercentage: string;
 }

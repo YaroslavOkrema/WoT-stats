@@ -6,7 +6,14 @@ export interface PlayerId {
   data: PlayerData[];
 } 
 
-interface PlayerData {
+export interface PlayerData {
   nickname: string;
-  account_id: any;
+  account_id: number;
+  global_rating: number;
+  statistics: {
+    all: {
+        battles: number;
+        wins: number;
+    }
+};
 }

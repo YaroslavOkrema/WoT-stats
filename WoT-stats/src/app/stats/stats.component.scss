@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    height: 100vh;
+    height: 93vh;
     background: linear-gradient(to bottom, #1c1c1e 70%, black 50%);
 }
 
@@ -103,4 +103,17 @@ td {
 
 .table__name {
     color: #658c4c;
+}
+
+.custom__toolbar {
+    background-color: #151516;
+}
+
+.svg__img {
+    fill: #ced0ce;
+    cursor: pointer;
+}
+
+.svg__img:hover {
+    fill: #fff;
 }

@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../service/api.service';
-import { PlayerStats } from '../interfaces/playerStats';
 import { PlayerId } from '../interfaces/playerId';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { PlayerPersonalData } from './playerPersonalData';
 import { map, switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
 
 
 @Component({
@@ -14,7 +16,10 @@ import { Observable } from 'rxjs';
   standalone: true,
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatInputModule
   ],
   templateUrl: './stats.component.html',
   styleUrl: './stats.component.scss',

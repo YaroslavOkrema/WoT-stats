@@ -1,0 +1,106 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    background: linear-gradient(to bottom, #1c1c1e 70%, black 50%);
+}
+
+.stats__logo {
+    margin-bottom: 50px;
+    margin-left: -20px;
+}
+
+.wot__logo {
+    width: 317px;
+    height: 190px;
+}
+
+.stats__title {
+    font-size: 32px;
+    font-family: "WarHeliosCondC","Arial Narrow",Arial,sans-serif;
+    color: #fff;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.stats__subtitle {
+    font-size: 14px;
+    font-family: "WarHeliosCondC","Arial Narrow",Arial,sans-serif;
+    color: #8b8b8b;
+    margin-bottom: 10px;
+}
+
+.stats__input {
+    border: 1px solid #000;
+    box-shadow: inset 0 1px 2px 0 rgba(0,0,0,.75);
+    box-sizing: content-box;
+    color: #262626;
+    font-family: Arial,"Helvetica CY",Helvetica,sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    height: 17px;
+    line-height: 11px;
+    padding: 3px 7px 2px;
+    width: 163px;
+    margin-bottom: 17px;
+}
+
+.stats__btn {
+    font-size: 10px;
+    background: #2d2d31;
+    color: #fff;
+    height: 24px;
+    width: 54px;
+    border: 1px solid black;
+    padding: 0;
+    cursor: pointer;
+}
+
+table {
+    border: 1px solid #343840;
+    font-family: Arial,"Helvetica CY",Helvetica,sans-serif;
+    font-size: 13px;
+    line-height: 150%;
+    width: 100%;
+    text-align: left;
+}
+  
+th {
+    color: #babcbf;
+    border: 1px solid #2e3139;
+    border-top: 1px solid #545a69;
+    line-height: 131%;
+    padding: 8px 13px;
+    vertical-align: middle;
+    background: linear-gradient(to bottom, #090a0b 2%, #2e3139 50%);
+}
+
+tr {
+    border-bottom: 1px solid white;
+}
+
+td {
+    border: 1px solid #2e3139;
+    color: #9fa0a1;
+    padding: 10px 13px 6px;
+    vertical-align: top;
+    background: #0a0c0d;
+}
+
+.stats__res {
+    margin-bottom: 17px;
+    color: #7f7e7e;
+    font-weight: 700;
+    font-size: 12px;
+    font-family: Arial,"Helvetica CY",Helvetica,sans-serif;
+}
+
+.res__name {
+    color: #fff;
+}
+
+.table__name {
+    color: #658c4c;
+}

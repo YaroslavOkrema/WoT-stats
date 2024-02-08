@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ApiService } from '../service/api.service';
-import { PlayerId } from '../interfaces/playerId';
+import { ApiService } from '../../service/api.service';
+import { PlayerId } from '../../interfaces/playerId';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { PlayerPersonalData } from './playerPersonalData';

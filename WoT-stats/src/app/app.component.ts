@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { StatsComponent } from './stats/stats.component';
+import { StatsComponent } from './components/stats/stats.component';
 
 @Component({
   selector: 'app-root',

@@ -12,11 +12,8 @@
         </div>
         <h1 class="stats__title">Players</h1>
         <p class="stats__subtitle">Use this section to look up information on World of Tanks players. Enter a player's name in the field below and click Search.</p>
-        <mat-form-field>
-            <mat-label>Enter a player's name</mat-label>
-            <input matInput required type="text" [formControl]="playerName">
-        </mat-form-field>
-        <button mat-raised-button (click)="searchPlayer()">Search</button>
+        <input class="stats__input" type="text" [formControl]="playerName">
+        <button class="stats__btn" (click)="searchPlayer()">Search</button>
         
         <div *ngIf="playerPersonalData$ | async as playerPersonalData">
             <p class="stats__res">Search results for <span class="res__name">{{playerPersonalData.nickname}}</span></p>
@@ -28,7 +25,7 @@
                   <th>Global Rating</th>
                 </tr>
                 <tr>
-                  <td><span class="table__name">{{playerPersonalData.nickname}}</span></td>
+                  <td><a href="/advanced-stats"><span class="table__name">{{playerPersonalData.nickname}}</span></a></td>
                   <td>{{playerPersonalData.battles}}</td>
                   <td>{{playerPersonalData.winPercentage}}%</td>
                   <td>{{playerPersonalData.globalRating}}</td>

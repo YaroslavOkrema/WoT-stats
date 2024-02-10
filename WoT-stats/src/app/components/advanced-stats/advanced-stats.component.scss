@@ -38,13 +38,19 @@
 }
 
 .stats__col--first {
-    width: 24%;
+    width: 30%;
     display: flex;
     flex-wrap: wrap;
 }
 
 .stats__col--second {
-    width: 24%;
+    width: 33%;
+}
+
+.stats__col--third {
+    width: 37%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .stats__item {
@@ -53,13 +59,34 @@
 
 .stats__numbers {
     text-align: center;
+    font-size: 32px;
+    color: #f9f5e1;
+    font-weight: 700;
+    margin-bottom: 10px;
+    margin-top: 20px;
 }
 
-.stats__title {
+.global__numbers {
     text-align: center;
+    font-size: 44px;
+    color: #f9f5e1;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.stats__text {
+    text-align: center;
+    font-size: 12px;
+    color: #f9f5e1;
+    font-weight: 700;
 }
 
 .global__img {
+    display: block;
+    margin: auto;
+}
+
+.stats__img {
     display: block;
     margin: auto;
 }

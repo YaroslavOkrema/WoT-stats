@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { DataTransferService } from '../../service/dataTransfer/data-transfer.service';
 import { tap } from 'rxjs/operators';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
@@ -21,7 +22,8 @@ import { tap } from 'rxjs/operators';
     ReactiveFormsModule,
     MatToolbarModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    RouterModule
   ],
   templateUrl: './stats.component.html',
   styleUrl: './stats.component.scss',

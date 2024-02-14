@@ -3,6 +3,7 @@ import { PlayerPersonalData } from '../stats/playerPersonalData';
 import { Observable } from 'rxjs';
 import { DataTransferService } from '../../service/dataTransfer/data-transfer.service';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { ApiService } from '../../service/search/api.service';
 
 @Component({
   selector: 'app-advanced-stats',
@@ -14,14 +15,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   styleUrl: './advanced-stats.component.scss'
 })
 export class AdvancedStatsComponent {
-  playerData$: Observable<PlayerPersonalData | null>;
+  playerData: object | undefined;
 
-  constructor(private DataTransferService: DataTransferService) {
-    this.playerData$ = this.DataTransferService.getPlayerData();
-  }
-
-  ngOnInit() {
-    console.log(this.DataTransferService.getPlayerData());
-    
+  constructor(private apiService: ApiService, private transferServise: DataTransferService) {
+    console.log(this.transferServise.getPlayerData);
   }
 }

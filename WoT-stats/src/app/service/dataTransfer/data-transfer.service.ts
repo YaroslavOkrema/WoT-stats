@@ -6,13 +6,13 @@ import { PlayerPersonalData } from '../../components/stats/playerPersonalData';
   providedIn: 'root'
 })
 export class DataTransferService {
-  playerData$: any;
+  private playerData: PlayerPersonalData | null = null;
 
   setPlayerData(data: PlayerPersonalData | null) {
-    this.playerData$ = data
+    this.playerData = data
   }
 
-  getPlayerData() {
-    return this.playerData$;
+  get getPlayerData(): PlayerPersonalData | null {
+    return this.playerData;
   }
 }

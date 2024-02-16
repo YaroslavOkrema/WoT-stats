@@ -6,6 +6,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
+import { AuthService } from '../../service/auth/auth.service';
 
 @Component({
   selector: 'app-layout',
@@ -23,5 +24,18 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './layout.component.scss'
 })
 export class LayoutComponent {
+  constructor(private authService: AuthService) { }
 
+  login() {
+    this.authService.auth().subscribe(
+      (response) => {
+        const redirectUrl = response.data.location;
+        window.location.href = redirectUrl;
+        console.log(response);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
 }

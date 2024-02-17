@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { AuthService } from '../../service/auth/auth.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
@@ -24,7 +25,17 @@ import { AuthService } from '../../service/auth/auth.service';
   styleUrl: './layout.component.scss'
 })
 export class LayoutComponent {
-  constructor(private authService: AuthService) { }
+
+  accessToken: string = '';
+
+  constructor(private authService: AuthService,   private route: ActivatedRoute) { }
+
+  ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      this.accessToken = params['access_token'];
+      console.log(this.accessToken);
+    });
+  }
 
   login() {
     this.authService.auth().subscribe(

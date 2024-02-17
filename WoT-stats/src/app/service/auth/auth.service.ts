@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { HttpParams } from '@angular/common/http';
+import { Auth } from '../../interfaces/auth';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +13,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  auth(): Observable<any> {
+  auth(): Observable<Auth> {
     const appId = '73cdf6c95a1cc69d671569c117b05f69';
     const redirectUri = window.location.href;
 
@@ -21,6 +23,6 @@ export class AuthService {
       .set('nofollow', '1')
       .set('redirect_uri', redirectUri)
     
-    return this.http.get(this.apiUrl, {params});
+    return this.http.get<Auth>(this.apiUrl, {params});
   }
 }

@@ -15,5 +15,5 @@ export interface PlayerData {
         battles: number;
         wins: number;
     }
-};
+  };
 }

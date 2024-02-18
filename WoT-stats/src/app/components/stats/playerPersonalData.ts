@@ -1,5 +1,5 @@
-import { PlayerData } from "../interfaces/playerId";
-import { PlayerStats } from "../interfaces/playerStats";
+import { PlayerData } from "../../interfaces/playerId";
+import { PlayerStats } from "../../interfaces/playerStats";
 
 export class PlayerPersonalData {
     data: { [accountId: number]: PlayerData };

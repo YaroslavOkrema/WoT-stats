@@ -1,0 +1,78 @@
+.stats__section {
+    height: 100vh;
+    background: #1c1c1e;
+}
+
+.container{
+    width: 100%;
+    max-width:  1230px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.player__name {
+    font-size: 44px;
+    line-height: 46px;
+    font-weight: 700;
+    color: #f9f5e1;
+    margin-bottom: 100px;
+}
+
+.stats__inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.stats__col--first {
+    width: 30%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.stats__col--second {
+    width: 33%;
+}
+
+.stats__col--third {
+    width: 37%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.stats__item {
+    padding: 10px 23px;
+}
+
+.stats__numbers {
+    text-align: center;
+    font-size: 32px;
+    color: #f9f5e1;
+    font-weight: 700;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.global__numbers {
+    text-align: center;
+    font-size: 44px;
+    color: #f9f5e1;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.stats__text {
+    text-align: center;
+    font-size: 12px;
+    color: #f9f5e1;
+    font-weight: 700;
+}
+
+.global__img {
+    display: block;
+    margin: auto;
+}
+
+.stats__img {
+    display: block;
+    margin: auto;
+}
